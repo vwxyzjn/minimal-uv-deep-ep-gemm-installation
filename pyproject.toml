@@ -1,0 +1,30 @@
+[project]
+name = "project"
+version = "0.1.0"
+description = "..."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "deep_ep",
+    "deep_gemm",
+    "torch",
+    "nvidia-nvshmem-cu12",
+    "numpy>=2.3.2",
+]
+
+[tool.uv.sources]
+deep_ep = { git = "https://github.com/deepseek-ai/DeepEP" }
+deep_gemm = { git = "https://github.com/deepseek-ai/DeepGEMM" }
+
+
+[tool.uv.extra-build-dependencies]
+deep_ep = [
+    { requirement = "torch", match-runtime = true },
+    { requirement = "nvidia-nvshmem-cu12", match-runtime = true },
+    { requirement = "numpy", match-runtime = true },
+]
+deep_gemm = [
+    { requirement = "torch", match-runtime = true },
+    { requirement = "nvidia-nvshmem-cu12", match-runtime = true },
+    { requirement = "numpy", match-runtime = true },
+]
